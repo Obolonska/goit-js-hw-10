@@ -1,0 +1,75 @@
+.timer {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+}
+.value {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #2e2f42;
+  text-transform: uppercase;
+}
+button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 75px;
+  height: 40px;
+  background-color: #4e75ff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border: none;
+  margin: 0;
+}
+button:hover {
+  background-color: #6c8cff;
+}
+button:disabled {
+  background-color: #cfcfcf;
+  color: #989898;
+}
+.datetime-picker {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  height: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  padding: 0 16px;
+  margin-right: 8px;
+  margin-bottom: 32px;
+}
+.datetime-picker:active {
+  border: 1px solid #4e75ff;
+}
+.datetime-picker:hover {
+  border: 1px solid #000;
+}
+
+.datetime-picker:disabled {
+  border: 1px solid #808080;
+  color: #808080;
+  background: #fafafa;
+}
