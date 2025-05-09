@@ -1,42 +1,39 @@
-const form = document.querySelector('.feedback-form');
-const STORAGE_KEY = 'feedback-form-state';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
-let formData = {
-  email: '',
-  message: '',
-};
+const form = document.querySelector('.form');
+const inputDelay = document.querySelector('input[name="delay"]');
 
-const savedData = localStorage.getItem(STORAGE_KEY);
-if (savedData) {
-  formData = JSON.parse(savedData);
-  form.elements.email.value = formData.email || '';
-  form.elements.message.value = formData.message || '';
-}
-
-// input
-form.addEventListener('input', handleFormInput);
-
-function handleFormInput(event) {
-  const { name, value } = event.target;
-  formData[name] = value;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
-}
-
-// submit
 form.addEventListener('submit', event => {
   event.preventDefault();
 
-  const { email, message } = formData;
+  const delay = Number(inputDelay.value);
+  const inputState = document.querySelector('input[name="state"]:checked');
+  const state = inputState.value;
 
-  if (email.trim() === '' || message.trim() === '') {
-    alert('Fill please all fields');
-    return;
-  }
+  const myPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (state === 'fulfilled') {
+        resolve(delay);
+      } else {
+        reject(delay);
+      }
+    }, delay);
+  });
 
-  console.log('Submitted data:', formData);
-
-  // Очищення
-  form.reset();
-  formData = { email: '', message: '' };
-  localStorage.removeItem(STORAGE_KEY);
+  myPromise
+    .then(delay => {
+      iziToast.success({
+        title: 'Success',
+        message: `✅ Fulfilled promise in ${delay}ms`,
+        position: 'topRight',
+      });
+    })
+    .catch(delay => {
+      iziToast.error({
+        title: 'Error',
+        message: `❌ Rejected promise in ${delay}ms`,
+        position: 'topRight',
+      });
+    });
 });
