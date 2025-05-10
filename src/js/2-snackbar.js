@@ -36,4 +36,6 @@ form.addEventListener('submit', event => {
         position: 'topRight',
       });
     });
+
+  inputDelay.value = '';
 });
