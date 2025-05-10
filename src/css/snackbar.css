@@ -32,6 +32,6 @@ legend {
   stroke: #808080;
   margin-bottom: 24px;
 }
-button {
+.btnCreate {
   width: 100%;
 }
