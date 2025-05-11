@@ -54,7 +54,7 @@ btnStart.addEventListener('click', () => {
     const diff = userSelectedDate - currentDate;
     if (diff <= 0) {
       clearInterval(intervalId);
-      updateTimerUI({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      updateTimer({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       inputData.disabled = false;
       return;
     }
